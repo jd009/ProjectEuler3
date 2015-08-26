@@ -10,6 +10,8 @@
 #include <vector>
 #include "math.h"
 
+bool gDebug = false;
+
 void crossOffNonPrimes(std::vector<bool>& flags, long long int prime)
 {
    for(long long int multipleOfPrime = prime * prime; multipleOfPrime < flags.size(); multipleOfPrime += prime)
@@ -60,10 +62,16 @@ long long int sieveOfEratosthenes(long long int numberOfInterest, int maximumLim
 }
 
 int main(int argc, const char * argv[]) {
-   //std::cout << "Test Case - Largest prime: " << sieveOfEratosthenes(13195, 10000) << std::endl;
+   if(gDebug)
+   {
+      std::cout << "Test Case - Largest prime: " << sieveOfEratosthenes(13195, 10000) << std::endl;
+   }
 
    int sqroot = sqrt(600851475143);
-   //std::cout << "sqr: " << sqroot << std::endl;
+   if(gDebug)
+   {
+      std::cout << "sqr: " << sqroot << std::endl;
+   }
    std::cout << "Largest prime: " << sieveOfEratosthenes(600851475143, sqroot) << std::endl;
    return 0;
 }
